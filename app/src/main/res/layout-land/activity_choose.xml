@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.bentaher.youssefbentaher_pset2.ActivityChoose">
+
+
+    <TextView
+        android:id="@+id/textUitleg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:text="Vul de woorden in" />
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/Simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="gaPagina"
+            android:text="Simple" />
+
+        <Button
+            android:id="@+id/Tarzan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="gaPagina"
+            android:text="Tarzan" />
+
+        <Button
+            android:id="@+id/University"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="gaPagina"
+            android:text="University" />
+
+        <Button
+            android:id="@+id/Clothes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="gaPagina"
+            android:text="Clothes" />
+
+        <Button
+            android:id="@+id/Dance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="gaPagina"
+            android:text="Dance" />
+
+        <Button
+            android:id="@+id/Random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="gaPagina"
+            android:text="Random" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

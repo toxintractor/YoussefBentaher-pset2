@@ -1,6 +1,8 @@
 package com.bentaher.youssefbentaher_pset2;
 
 import android.content.Intent;
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +30,7 @@ public class ActivityIn extends AppCompatActivity {
     Button btnInvoer;
     InputStream textFileStream = null;
     String wi = "";
+    Story saveObject;
 
 
     @Override
@@ -42,14 +45,14 @@ public class ActivityIn extends AppCompatActivity {
 
         readInput();
 
-        Story st = new Story(textFileStream);
-        int pl = st.getPlaceholderCount();
+        saveObject = new Story(textFileStream);
+        int pl = saveObject.getPlaceholderCount();
         Log.i("lekker", Integer.toString(pl));
 
         txtCount.setText("Voer " + String.valueOf(pl) + " woorden in" );
-        txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + st.getNextPlaceholder() );
+        txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + saveObject.getNextPlaceholder() );
 
-        btnInvoer.setOnClickListener(new setWord(st));
+        btnInvoer.setOnClickListener(new setWord());
         //st.fillInPlaceholder(setWord(this));
 
     }
@@ -66,10 +69,10 @@ public class ActivityIn extends AppCompatActivity {
 
     public class setWord implements View.OnClickListener {
 
-        Story b;
 
-        public setWord(Story a){
-            b =  a;
+
+        public setWord(){
+
         }
 
         @Override public void onClick(View view) {
@@ -80,15 +83,16 @@ public class ActivityIn extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Voer iets in",Toast.LENGTH_SHORT).show();
             }
             else{
-                b.fillInPlaceholder(str);
-                int pl = b.getPlaceholderRemainingCount();
-                txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + b.getNextPlaceholder() );
+                saveObject.fillInPlaceholder(str);
+                int pl = saveObject.getPlaceholderRemainingCount();
+                txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + saveObject.getNextPlaceholder() );
                 Log.i("lekker", Integer.toString(pl));
 
+
                 if(pl == 0){
-                    Log.i("lekker",b.toString());
+                    Log.i("lekker",saveObject.toString());
                     Intent jumppage = new Intent(ActivityIn.this, ActivityShow.class);
-                    jumppage.putExtra("verhaal", b.toString());
+                    jumppage.putExtra("verhaal", saveObject.toString());
                     startActivity(jumppage);
 
                 }
@@ -106,6 +110,27 @@ public class ActivityIn extends AppCompatActivity {
 
         }
 
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //Story onSave = saveObject;
+        outState.putSerializable("saveStory", saveObject);
+
+    }
+
+
+    @Override
+    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        saveObject = (Story) savedInstanceState.getSerializable("saveStory");
+
+        int pl = saveObject.getPlaceholderRemainingCount();
+        txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + saveObject.getNextPlaceholder() );
 
     }
 
