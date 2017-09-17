@@ -24,13 +24,13 @@
         android:text="Nog 7 woorden over" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editFill"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/knopje"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="setWord"
             android:text="Button" />

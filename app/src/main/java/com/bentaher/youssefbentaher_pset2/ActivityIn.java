@@ -10,6 +10,7 @@ import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bentaher.youssefbentaher_pset2.Story;
 
@@ -46,7 +47,7 @@ public class ActivityIn extends AppCompatActivity {
         Log.i("lekker", Integer.toString(pl));
 
         txtCount.setText("Voer " + String.valueOf(pl) + " woorden in" );
-        txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" );
+        txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + st.getNextPlaceholder() );
 
         btnInvoer.setOnClickListener(new setWord(st));
         //st.fillInPlaceholder(setWord(this));
@@ -74,16 +75,24 @@ public class ActivityIn extends AppCompatActivity {
         @Override public void onClick(View view) {
             // some other code
             String str = txtInvoer.getText().toString();
-            b.fillInPlaceholder(str);
-            int pl = b.getPlaceholderRemainingCount();
-            txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" );
-            Log.i("lekker", Integer.toString(pl));
 
-            if(pl == 0){
-                Log.i("lekker",b.toString());
-                Intent jumppage = new Intent(ActivityIn.this, ActivityShow.class);
-                jumppage.putExtra("verhaal", b.toString());
-                startActivity(jumppage);
+            if(str.matches("")){
+                Toast.makeText(getApplicationContext(),"Voer iets in",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                b.fillInPlaceholder(str);
+                int pl = b.getPlaceholderRemainingCount();
+                txtRemain.setText("Nog " + String.valueOf(pl) + " woorden" + " - woordtype: " + b.getNextPlaceholder() );
+                Log.i("lekker", Integer.toString(pl));
+
+                if(pl == 0){
+                    Log.i("lekker",b.toString());
+                    Intent jumppage = new Intent(ActivityIn.this, ActivityShow.class);
+                    jumppage.putExtra("verhaal", b.toString());
+                    startActivity(jumppage);
+
+                }
+
 
             }
 
