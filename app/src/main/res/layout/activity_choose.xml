@@ -7,9 +7,17 @@
     android:orientation="vertical"
     tools:context="com.bentaher.youssefbentaher_pset2.ActivityChoose">
 
+    <TextView
+        android:id="@+id/textUitleg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:text="Vul de woorden in" />
+
     <Button
         android:id="@+id/Simple"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="gaPagina"
@@ -17,7 +25,7 @@
 
     <Button
         android:id="@+id/Tarzan"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="gaPagina"
@@ -25,7 +33,7 @@
 
     <Button
         android:id="@+id/University"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="gaPagina"
@@ -33,7 +41,7 @@
 
     <Button
         android:id="@+id/Clothes"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="gaPagina"
@@ -41,7 +49,7 @@
 
     <Button
         android:id="@+id/Dance"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="gaPagina"
@@ -49,7 +57,7 @@
 
     <Button
         android:id="@+id/Random"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="gaPagina"
