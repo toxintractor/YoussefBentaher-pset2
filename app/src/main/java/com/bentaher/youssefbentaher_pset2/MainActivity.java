@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void gaPagina(View v){
 
-        Intent jumppage = new Intent(MainActivity.this, ActivityIn.class);
+        Intent jumppage = new Intent(MainActivity.this, ActivityChoose.class);
         startActivity(jumppage);
     }
 }

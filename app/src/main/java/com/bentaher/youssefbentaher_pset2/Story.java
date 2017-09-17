@@ -17,8 +17,9 @@
  */
 
 // !YOU MAY WANT TO CHANGE THE PACKAGE BELOW SO THAT IT MATCHES YOUR PROJECT'S PACKAGE!
-//package com.example.stepp.madlibs;
 package com.bentaher.youssefbentaher_pset2;
+
+import android.util.Log;
 
 import java.io.*;
 import java.util.*;
@@ -31,7 +32,7 @@ public class Story implements Serializable {
 
     {
         // instance initializer; runs before any constructor
-        text = "voorbeeld";
+        text = "";
         placeholders = new ArrayList<String>();
         filledIn = 0;
         htmlMode = false;
@@ -42,7 +43,6 @@ public class Story implements Serializable {
     public Story(InputStream stream) {
         read(stream);
     }
-
 
     /** resets the story back to an empty initial state */
     public void clear() {

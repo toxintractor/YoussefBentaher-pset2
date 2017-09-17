@@ -37,9 +37,10 @@
             android:hint="fill in" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/knopje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setWord"
             android:text="Button" />
 
     </LinearLayout>
